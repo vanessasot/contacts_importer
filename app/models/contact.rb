@@ -3,6 +3,14 @@ class Contact < ApplicationRecord
               :credit_card_franchise, :email, presence: true
 
     validates :name, format: { with: /\A[a-zA-Z\s-]+\z/, message: "Name can't have special characters" }
+    validate :date_valid
+    validates :telephone,
+              format: { with: /\A(\(\+\d{2}\)[\s]\d{3}[\s]\d{3}[\s]\d{2}[\s]\d{2})|(\(\+\d{2}\)[\s]\d{3}[-]\d{3}[-]\d{2}[-]\d{2})\z/,
+              message: "(+00) 000 000 00 00 and (+00) 000-000-00-00 are the only telephone formats permitted" }
+
+    def date_valid
+        Date.iso8601(birthday)
+    end
 
     def self.import(file)
         CSV.foreach(file.path, headers: true) do |row|
