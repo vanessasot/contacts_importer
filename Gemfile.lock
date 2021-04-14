@@ -60,6 +60,8 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
+    attr_encrypted (3.1.0)
+      encryptor (~> 3.0.0)
     bcrypt (3.1.16)
     bindex (0.8.1)
     bootsnap (1.7.3)
@@ -78,6 +80,7 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.4.4)
+    encryptor (3.0.0)
     erubi (1.10.0)
     ffi (1.15.0)
     globalid (0.4.2)
@@ -216,6 +219,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  attr_encrypted (~> 3.1.0)
   bootsnap (>= 1.4.4)
   byebug
   credit_card_validations

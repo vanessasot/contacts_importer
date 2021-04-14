@@ -1,4 +1,7 @@
 class Contact < ApplicationRecord
+    has_many :users_contacts
+    has_many :users, through: :users_contacts
+
     validates :name, :birthday, :telephone, :address, :credit_card_number,
               :credit_card_franchise, :email, presence: true
 
@@ -8,6 +11,8 @@ class Contact < ApplicationRecord
               format: { with: /\A(\(\+\d{2}\)[\s]\d{3}[\s]\d{3}[\s]\d{2}[\s]\d{2})|(\(\+\d{2}\)[\s]\d{3}[-]\d{3}[-]\d{2}[-]\d{2})\z/,
               message: "(+00) 000 000 00 00 and (+00) 000-000-00-00 are the only telephone formats permitted" }
     validates :credit_card_number, credit_card_number: true
+    validates :email, format: { with: /\A[^@\s]+@[^@\s]+\z/, message: "Must be a valid email address" }
+
 
     def date_valid
         Date.iso8601(birthday)
