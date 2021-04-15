@@ -4,15 +4,15 @@
   <thead>
     <tr>
       <th>File</th>
-      <th>Status</th>
+      <th>State</th>
     </tr>
   </thead>
 
   <tbody>
     <% @import_files.each do |import_file| %>
       <tr>
-        <td><%= import_file.file %></td>
-        <td><%= import_file.status %></td>
+        <td><%= import_file.filename %></td>
+        <td><%= import_file.state %></td>
       </tr>
     <% end %>
   </tbody>

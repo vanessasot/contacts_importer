@@ -1,0 +1,36 @@
+
+<h1>Invalid contacts</h1>
+
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name </th>
+      <th>Telephone </th>
+      <th>Email </th>
+      <th>Address </th>
+      <th>Birthday </th>
+      <th>Credit card </th>
+      <th>Franchise </th>
+      <th>Error message </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @invalid_contacts.each do |invalid_contact| %>
+      <tr>
+        <td><%= invalid_contact.name %></td>
+        <td><%= invalid_contact.telephone %></td>
+        <td><%= invalid_contact.email %></td>
+        <td><%= invalid_contact.address %></td>
+        <td><%= format_birthday(invalid_contact.birthday) %></td>
+        <td><%= invalid_contact.credit_card_last_four_digits %></td>
+        <td><%= invalid_contact.credit_card_franchise %></td>
+        <td><%= invalid_contact.error_message %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br/>
+<%= will_paginate @invalid_contacts %>

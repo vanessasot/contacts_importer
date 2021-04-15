@@ -37,18 +37,4 @@ class Contact < ApplicationRecord
     def credit_card_encrypt
         self.credit_card_number = CreditCard.new(credit_card_number).encryption_credit_card
     end
-
-    def self.import(file, user)
-        CSV.foreach(file.path, headers: true) do |row|
-            contact_hash = row.to_hash
-            contact = find_or_create_by!(name: contact_hash['name'], telephone: contact_hash['telephone'],
-                                         email: contact_hash['email'], address: contact_hash['address'],
-                                         birthday: contact_hash['birthday'],
-                                         credit_card_number: contact_hash['credit_card_number'],
-                                         credit_card_franchise: contact_hash['credit_card_number'].credit_card_brand_name,
-                                         credit_card_last_four_digits: contact_hash['credit_card_number'],
-                                         user_id: user.id)
-            contact.update(contact_hash)
-        end
-    end
 end

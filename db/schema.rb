@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_15_051208) do
+ActiveRecord::Schema.define(version: 2021_04_15_114017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,12 +36,28 @@ ActiveRecord::Schema.define(version: 2021_04_15_051208) do
   end
 
   create_table "import_files", force: :cascade do |t|
-    t.string "file"
-    t.string "status"
+    t.string "filename"
+    t.string "state"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_import_files_on_user_id"
+  end
+
+  create_table "invalid_contacts", force: :cascade do |t|
+    t.string "name"
+    t.string "birthday"
+    t.string "telephone"
+    t.string "address"
+    t.string "credit_card_number"
+    t.string "credit_card_franchise"
+    t.string "credit_card_last_four_digits"
+    t.string "email"
+    t.string "error_message"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_invalid_contacts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -58,4 +74,5 @@ ActiveRecord::Schema.define(version: 2021_04_15_051208) do
 
   add_foreign_key "contacts", "users"
   add_foreign_key "import_files", "users"
+  add_foreign_key "invalid_contacts", "users"
 end
