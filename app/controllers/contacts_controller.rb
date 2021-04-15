@@ -3,16 +3,9 @@ class ContactsController < ApplicationController
     before_action :authenticate_user!
 
   def index
-    @contacts = Contact.all
-  end
-
-  def import
-    Contact.import(params[:file], current_user)
-    redirect_to contacts_path, notice: "Contacts imported successfully!"
-  end
-
-  def new
-    @contact = Contact.new
+    if user_signed_in?
+      @contacts = current_user.contacts.paginate(page: params[:page], per_page: 5)
+    end
   end
 
   def create
@@ -55,6 +48,6 @@ class ContactsController < ApplicationController
     end
 
     def contact_params
-      params.require(:contact).permit(:name, :telephone, :email, :address, :birthday, :credit_card_number, :credit_card_franchise)
+      params.require(:contact).permit(:user_id, :name, :telephone, :email, :address, :birthday, :credit_card_number, :credit_card_franchise)
     end
 end

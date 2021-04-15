@@ -1,0 +1,9 @@
+<h1>Import File</h1>
+
+<p>
+  <strong>Import:</strong>
+  <%= form_tag import_import_files_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import Contacts" %>
+  <% end %>
+</p>

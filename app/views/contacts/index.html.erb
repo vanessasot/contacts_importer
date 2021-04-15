@@ -2,7 +2,7 @@
 
 <p>
   <strong>Import:</strong>
-  <%= form_tag import_contacts_path, multipart: true do %>
+  <%= form_tag import_import_files_path, multipart: true do %>
     <%= file_field_tag :file %>
     <%= submit_tag "Import Contacts" %>
   <% end %>
@@ -37,5 +37,6 @@
     <% end %>
   </tbody>
 </table>
+<%= will_paginate @contacts %>
 <br>
 <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'btn btn-outline-info btn-lg nav-link' %>
