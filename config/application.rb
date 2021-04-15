@@ -2,6 +2,7 @@ require_relative "boot"
 
 require "rails"
 require "csv"
+require "bcrypt"
 require "credit_card_validations/string"
 # Pick the frameworks you want:
 require "active_model/railtie"

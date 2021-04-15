@@ -30,10 +30,12 @@
         <td><%= contact.email %></td>
         <td><%= contact.address %></td>
         <td><%= format_birthday(contact.birthday) %></td>
-        <td><%= contact.credit_card_number %></td>
+        <td><%= contact.credit_card_last_four_digits %></td>
         <td><%= contact.credit_card_franchise %></td>
+        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<br>
 <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'btn btn-outline-info btn-lg nav-link' %>
