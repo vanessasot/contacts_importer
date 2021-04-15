@@ -1,24 +1,13 @@
-# README
+# Contacts Importer
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installation, Init and Usage
+You must have installed Rails 6+ and Ruby 2.7+ before cloning:
 
-Things you may want to cover:
+* Clone the repository: `git clone git@github.com:vanessasot/contacts_importer.git`
+* Go to the folder: `cd contacts_importer`
+* Install requirements `bundle install`
+* Create the data base `rails db:create`
+* Run the migrations `rails db:migrate`
+* Run the server: `rails s -b 0.0.0.0 -p 3000`
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+In the browser get into the URL `127.0.0.1:3000` to start the web app, create a new account to access or log in with a user provided.

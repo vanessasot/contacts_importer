@@ -11,6 +11,8 @@ gem 'pg', '~> 1.1'
 gem 'credit_card_validations'
 #Use to paginate contacts
 gem 'will_paginate', '~> 3.3'
+#State machine to the import file
+gem 'aasm', '~> 5.1', '>= 5.1.1'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets

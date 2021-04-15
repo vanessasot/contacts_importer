@@ -28,6 +28,7 @@
         <td><%= invalid_contact.credit_card_last_four_digits %></td>
         <td><%= invalid_contact.credit_card_franchise %></td>
         <td><%= invalid_contact.error_message %></td>
+        <td><%= link_to 'Destroy', invalid_contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
