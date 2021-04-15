@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <%= link_to "Contacts Importer", contacts_path, class: "navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item me-3">
+          <%= link_to "Import file", new_import_file_path %>
+        </li>
+        <li class="nav-item me-3">
+          <%= link_to "Contacts list", contacts_path %>
+        </li>
+        <li class="nav-item me-3">
+          <%= link_to "CSV files", import_files_path %>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <% if user_signed_in? %>
+        <li class="nav-item nav-link">
+            <%= current_user.email %>
+        </li>
+        <li class="nav-item">
+          <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-outline-info" %>
+        </li>
+        <% end %>
+      </ul>
+
+    </div>
+  </div>
+</nav>

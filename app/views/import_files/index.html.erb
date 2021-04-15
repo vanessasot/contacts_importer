@@ -1,1 +1,19 @@
-<h1>Imported Files</h1>
+<h1>Import Files</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>File</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @import_files.each do |import_file| %>
+      <tr>
+        <td><%= import_file.file %></td>
+        <td><%= import_file.status %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
